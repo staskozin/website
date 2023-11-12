@@ -1,0 +1,65 @@
+.header {
+  margin-bottom: 1.75em;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.photo {
+  width: 32px;
+  height: 32px;
+}
+
+.title {
+  font-size: 32px;
+  margin: 12px 0 18px;
+  font-weight: normal;
+}
+
+.contacts {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 515px) {
+
+  .name,
+  .contacts {
+    justify-content: center;
+  }
+
+  .title {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 667px) {
+  .header {
+    margin-bottom: 2.25em;
+  }
+
+  .photo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .title {
+    font-size: 48px;
+    margin: 4px 0 20px;
+  }
+
+  .contacts {
+    gap: 0;
+  }
+
+  .contacts a {
+    padding: 0.8em;
+  }
+}
