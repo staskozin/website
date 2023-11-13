@@ -3,3 +3,18 @@
   font-size: 0.8em;
   text-align: center;
 }
+
+.footer>span {
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+.contacts {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5em 1em;
+}
