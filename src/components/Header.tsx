@@ -1,13 +1,25 @@
+'use client'
+
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
 import s from './Header.module.css'
 
+
 export default function Footer(props: HeaderProps) {
+  const pathname = usePathname()
+
   return (
     <header className={s.header}>
       <div className={s.name}>
         <Image className={s.photo} src="/img/stas.png" alt="Фото Стасяна" width={80} height={80} />
-        <span>Станислав Козин</span>
+        {pathname === '/' ? (
+          <span>Станислав Козин</span>
+        ) : (
+          <Link href='/'>Станислав Козин</Link>
+        )}
+
       </div>
 
       <h1 className={s.title}>
@@ -32,8 +44,7 @@ export default function Footer(props: HeaderProps) {
               <a href="mailto:stas@staskozin.ru">stas@staskozin.ru</a>
             </li>
           </>
-        )
-        }
+        )}
       </ul>
     </header>
   )
