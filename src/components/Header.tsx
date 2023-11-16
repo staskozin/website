@@ -1,13 +1,13 @@
 'use client'
 
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import s from './Header.module.css'
 
 
-export default function Footer(props: HeaderProps) {
+export default function Header(props: HeaderProps) {
   const pathname = usePathname()
 
   return (

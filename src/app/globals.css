@@ -60,3 +60,16 @@ a:hover {
     padding: 1em 1em 0;
   }
 }
+
+.masonry {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -24px;
+  width: auto;
+}
+
+.masonry__item {
+  padding-left: 24px;
+  background-clip: padding-box;
+}

@@ -1,4 +1,5 @@
 import Header from '@/components/Header'
+import ProjectList from '@/components/ProjectList'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Header title='Веб-разработчик и&nbsp;дизайнер' />
-      <span>Контент</span>
+      <ProjectList />
     </>
   )
 }
