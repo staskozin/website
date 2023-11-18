@@ -1,4 +1,5 @@
 import Header from '@/components/Header'
+import RiceCalculator from '@/components/RiceCalculator'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -6,11 +7,11 @@ export const metadata: Metadata = {
   description: 'Сайт-портфолио фронтенд-разработчика',
 }
 
-export default function Home() {
+export default function RiceRecipe() {
   return (
     <>
       <Header title='Как варить рис' subtitle='Интерактивный рецепт' />
-      <span>Конь тент</span>
+      <RiceCalculator />
     </>
   )
 }
