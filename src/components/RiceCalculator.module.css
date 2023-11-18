@@ -1,0 +1,10 @@
+.checkbox {
+  margin-bottom: 6px;
+}
+
+
+@media screen and (min-width: 667px) {
+  .checkbox {
+    justify-content: center;
+  }
+}
