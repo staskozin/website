@@ -35,6 +35,7 @@ export default function Projects() {
             "/img/project/salon/4.jpg"
           ]}
           alt="Картина"
+          perspective
         />}
       />
 
