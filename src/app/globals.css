@@ -24,16 +24,26 @@
   font-style: italic;
 }
 
+:root {
+  --link-color: hsl(201, 75%, 30%);
+  --link-hover-color: hsl(0, 75%, 40%);
+  --link-input-hover-color: hsla(201, 75%, 30%, 0.75);
+  --text-color: #000000;
+  --background-color: #ffffff;
+}
+
 body {
   font-family: "YsabeauOffice";
   margin: 0;
   font-size: 24px;
   line-height: 1;
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 a {
   text-decoration: none;
-  color: hsl(201, 75%, 30%);
+  color: var(--link-color);
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-timing-function: ease-out;
@@ -43,7 +53,7 @@ a {
 }
 
 a:hover {
-  color: hsl(0, 75%, 40%);
+  color: var(--link-hover-color);
   -webkit-transition: none;
   transition: none;
 }
