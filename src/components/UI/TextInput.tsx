@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction, useEffect, useReducer, useRef } from 'react'
 import s from './TextInput.module.css'
 
 
-export default function RiceCalculator(props: CheckboxProps) {
+export default function TextInput(props: CheckboxProps) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [forcedUpdate, forceUpdate] = useReducer(x => x + 1, 0)
 

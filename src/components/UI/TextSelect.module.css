@@ -3,36 +3,48 @@
   min-width: 17px;
 }
 
-.input::-webkit-outer-spin-button,
-.input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.select::-ms-expand {
+  display: none;
 }
 
-.input {
-  -moz-appearance: textfield;
-  appearance: textfield;
-  position: absolute;
+.select {
   border: none;
   background: none;
-  padding: 0 4px;
-  left: -4px;
-  width: 100%;
+  padding: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  outline: none;
 }
 
-.input+span {
+.select option {
+  font-size: 0.6em;
+  font-family: Verdana;
+  font-weight: normal;
+  font-style: normal;
+  color: #000000;
+}
+
+.select option:disabled {
+  color: #b4b4b4;
+  background-color: #dadada;
+}
+
+.select+span {
   position: relative;
   z-index: -1;
   opacity: 0;
   font-style: italic;
 }
 
-.input {
+.select {
   font-size: 32px;
   line-height: 46px;
   font-style: italic;
   font-family: 'YsabeauOffice';
-  color: var(--link-color);
+  color: hsl(201, 75%, 30%);
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-timing-function: ease-out;
@@ -41,12 +53,8 @@
   transition-duration: .22s;
 }
 
-.input:hover {
-  color: var(--link-input-hover-color);
+.select:hover {
+  color: hsla(201, 75%, 30%, 0.75);
   -webkit-transition: none;
   transition: none;
-}
-
-.input:focus {
-  color: var(--text-color);
 }
