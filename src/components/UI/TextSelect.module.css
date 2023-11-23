@@ -16,7 +16,6 @@
   -moz-appearance: none;
   appearance: none;
   position: absolute;
-  outline: none;
 }
 
 .select option {

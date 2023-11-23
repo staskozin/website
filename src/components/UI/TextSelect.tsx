@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react'
 
 import s from './TextSelect.module.css'
 
@@ -13,12 +13,19 @@ function renderOptions(options: Record<string, string>) {
 
 
 export default function TextSelect(props: CheckboxProps) {
+  const selectRef = useRef<HTMLSelectElement>(null)
+  const widthHackRef = useRef<HTMLSpanElement>(null)
+
+  useEffect(() => {
+    selectRef.current!.style.width = Math.round(widthHackRef.current!.getBoundingClientRect().width) + 'px'
+  }, [props.selected])
+
   return (
     <div className={`${s.wrap} ${props.className ? props.className : ''}`}>
       {props.textBefore}
-      <select className={s.select} onChange={e => props.setFunction(e.target.value)}>
+      <select className={s.select} ref={selectRef} onChange={e => props.setFunction(e.target.value)}>
         {renderOptions(props.options)}
-      </select><span>{props.options[props.selected]}</span>
+      </select><span ref={widthHackRef}>{props.options[props.selected]}</span>
       {props.textAfter}
     </div>
   )
