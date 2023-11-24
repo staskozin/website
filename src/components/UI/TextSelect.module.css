@@ -52,8 +52,10 @@
   transition-duration: .22s;
 }
 
-.select:hover {
-  color: hsla(201, 75%, 30%, 0.75);
-  -webkit-transition: none;
-  transition: none;
+@media (hover: hover) {
+  .select:hover {
+    color: hsla(201, 75%, 30%, 0.75);
+    -webkit-transition: none;
+    transition: none;
+  }
 }

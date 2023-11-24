@@ -41,12 +41,14 @@
   transition-duration: .22s;
 }
 
-.input:hover {
-  color: var(--link-input-hover-color);
-  -webkit-transition: none;
-  transition: none;
-}
-
 .input:focus {
   color: var(--text-color);
+}
+
+@media (hover: hover) {
+  .input:hover {
+    color: var(--link-input-hover-color);
+    -webkit-transition: none;
+    transition: none;
+  }
 }

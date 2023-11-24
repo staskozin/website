@@ -52,12 +52,6 @@ a {
   transition-duration: .22s;
 }
 
-a:hover {
-  color: var(--link-hover-color);
-  -webkit-transition: none;
-  transition: none;
-}
-
 .container {
   padding: 0.5em 0.5em 0;
   box-sizing: border-box;
@@ -82,4 +76,12 @@ a:hover {
 .masonry__item {
   padding-left: 24px;
   background-clip: padding-box;
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--link-hover-color);
+    -webkit-transition: none;
+    transition: none;
+  }
 }
