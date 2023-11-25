@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Masonry from 'react-masonry-css'
 import Project from '@/components/Project'
-import ScrollableImage from '@/components/ScrollableImage'
+import ScrollableImage from '@/components/UI/ScrollableImage'
 
 
 export default function Projects() {

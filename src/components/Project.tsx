@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ResponsiveImage from '@/components/UI/ResponsiveImage'
 
 import s from './Project.module.css'
 
@@ -6,9 +7,7 @@ import s from './Project.module.css'
 export default function Project(props: ProjectProps) {
   return (
     <Link className={s.project} href={props.href}>
-      <div className={s.imagewrap}>
-        {props.view}
-      </div>
+      <ResponsiveImage image={props.view} />
       <span>{props.text}</span>
     </Link>
   )
