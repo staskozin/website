@@ -8,7 +8,7 @@ export default function Project(props: ProjectProps) {
   return (
     <Link className={s.project} href={props.href}>
       <ResponsiveImage image={props.view} />
-      <span>{props.text}</span>
+      <span className={s.text}>{props.text}</span>
     </Link>
   )
 }

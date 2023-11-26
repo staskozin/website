@@ -3,3 +3,11 @@
   margin-bottom: 24px;
   width: 100%;
 }
+
+.project>div {
+  margin-bottom: 6px;
+}
+
+.text {
+  line-height: 1.25;
+}
