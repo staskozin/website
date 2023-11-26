@@ -44,18 +44,18 @@ export default function Recipe(props: RecipeProps) {
       </div>
 
       <div className={s.dressing}>
-        <div>
+        <div className={s.paper}>
           <span>Заправка</span>
-          <div>
-            <div>
+          <div className={s.ingredientWrap}>
+            <div className={s.ingredient}>
               <span>Уксус 3%</span>
               <span>50 мл</span>
             </div>
-            <div>
+            <div className={s.ingredient}>
               <span>Соль</span>
               <span>5 г</span>
             </div>
-            <div>
+            <div className={s.ingredient}>
               <span>Сахар</span>
               <span>40 г</span>
             </div>
