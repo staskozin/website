@@ -1,0 +1,22 @@
+.recipe {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  line-height: 1.25;
+}
+
+.recipe img {
+  border-radius: 6px;
+}
+
+@media screen and (max-width: 1024px) {
+  .recipe {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .recipe {
+    grid-template-columns: 1fr;
+  }
+}

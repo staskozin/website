@@ -2,7 +2,7 @@
   max-width: 800px;
   font-size: 32px;
   line-height: 46px;
-  margin: 0 auto;
+  margin: 0 auto 22px;
 }
 
 .text {
@@ -12,7 +12,6 @@
 .checkbox {
   margin-bottom: 6px;
 }
-
 
 @media screen and (min-width: 667px) {
   .checkbox {

@@ -1,27 +1,19 @@
-'use client'
-
-import { useState } from 'react'
-
-import s from './RiceCalculator.module.css'
+import { Dispatch, SetStateAction } from 'react'
 import Checkbox from '@/components/UI/Checkbox'
 import TextInput from '@/components/UI/TextInput'
-import TextSelect from './UI/TextSelect'
+import TextSelect from '@/components/UI/TextSelect'
+
+import s from './Form.module.css'
 
 
-export default function RiceCalculator() {
-  const [scale, setScale] = useState<boolean>(true)
-  const [rice, setRice] = useState<number>(450)
-  const [riceType, setRiceType] = useState<string>('round')
-  const [potType, setPotType] = useState<string>('pot')
-  const [purpose, setPurpose] = useState<string>('sushi')
-
+export default function Form(props: FormProps) {
   return (
     <form className={s.control}>
-      <Checkbox className={s.checkbox} text='У меня есть весы' setFunction={setScale} checked={scale} />
+      <Checkbox className={s.checkbox} text='У меня есть весы' setFunction={props.setScale} checked={props.scale} />
 
       <span className={s.text}>Я&nbsp;буду варить</span>
       {' '}
-      <TextInput className={s.text} value={rice} setFunction={setRice} />
+      <TextInput className={s.text} value={props.rice} setFunction={props.setRice} />
       {' '}
       <span className={s.text}>грамм</span>
       {' '}
@@ -32,8 +24,8 @@ export default function RiceCalculator() {
           'long': 'длиннозёрного',
           'parboiled': 'пропаренного'
         }}
-        selected={riceType}
-        setFunction={setRiceType}
+        selected={props.riceType}
+        setFunction={props.setRiceType}
       />
       {' '}
       <span className={s.text}>риса</span>
@@ -45,8 +37,8 @@ export default function RiceCalculator() {
           'multi': 'мультиварке',
           'pan': 'сковороде'
         }}
-        selected={potType}
-        setFunction={setPotType}
+        selected={props.pot}
+        setFunction={props.setPot}
         textBefore='в '
       />
       {' '}
@@ -59,10 +51,23 @@ export default function RiceCalculator() {
           'side': 'как гарнир',
           'porridge': 'для каши'
         }}
-        selected={purpose}
-        setFunction={setPurpose}
+        selected={props.purpose}
+        setFunction={props.setPurpose}
         textAfter='.'
       />
     </form>
   )
+}
+
+type FormProps = {
+  scale: boolean
+  setScale: Dispatch<SetStateAction<boolean>>
+  rice: number
+  setRice: Dispatch<SetStateAction<number>>
+  riceType: string
+  setRiceType: Dispatch<SetStateAction<string>>
+  pot: string
+  setPot: Dispatch<SetStateAction<string>>
+  purpose: string
+  setPurpose: Dispatch<SetStateAction<string>>
 }
