@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import ResponsiveImage from '@/components/UI/ResponsiveImage'
 
@@ -6,6 +6,17 @@ import s from './Recipe.module.css'
 
 
 export default function Recipe(props: RecipeProps) {
+  const [ingredients, setIngredients] = useState<Ingredients>({
+    water: 495,
+    vinegar: 50,
+    sugar: 45,
+    salt: 5
+  })
+
+  useEffect(() => {
+    setIngredients(calculateProportions(props.rice))
+  }, [props.rice])
+
   return (
     <div className={s.recipe}>
       <div>
@@ -19,7 +30,7 @@ export default function Recipe(props: RecipeProps) {
         <ResponsiveImage image={
           <Image src="/img/rice-calculator/pot-sushi-2.jpg" alt="" fill sizes="1024px" />
         } />
-        <span>2. Добавить 495&nbsp;грамм воды и&nbsp;довести до&nbsp;кипения.</span>
+        <span>2. Добавить {ingredients.water}&nbsp;грамм воды и&nbsp;довести до&nbsp;кипения.</span>
       </div>
 
       <div>
@@ -49,15 +60,15 @@ export default function Recipe(props: RecipeProps) {
           <div className={s.ingredientWrap}>
             <div className={s.ingredient}>
               <span>Уксус 3%</span>
-              <span>50 мл</span>
+              <span>{ingredients.vinegar} мл</span>
             </div>
             <div className={s.ingredient}>
               <span>Соль</span>
-              <span>5 г</span>
+              <span>{ingredients.salt} г</span>
             </div>
             <div className={s.ingredient}>
               <span>Сахар</span>
-              <span>40 г</span>
+              <span>{ingredients.sugar} г</span>
             </div>
           </div>
         </div>
@@ -66,15 +77,27 @@ export default function Recipe(props: RecipeProps) {
   )
 }
 
+function calculateProportions(rice: number): Ingredients {
+  const proportion = Math.abs(rice / 500)
+  return {
+    water: Math.round(550 * proportion),
+    vinegar: Math.round(55 * proportion),
+    sugar: Math.round(45 * proportion),
+    salt: Math.round(5 * proportion)
+  }
+}
+
+type Ingredients = {
+  water: number
+  vinegar: number
+  sugar: number
+  salt: number
+}
+
 type RecipeProps = {
   scale: boolean
-  setScale: Dispatch<SetStateAction<boolean>>
   rice: number
-  setRice: Dispatch<SetStateAction<number>>
   riceType: string
-  setRiceType: Dispatch<SetStateAction<string>>
   pot: string
-  setPot: Dispatch<SetStateAction<string>>
   purpose: string
-  setPurpose: Dispatch<SetStateAction<string>>
 }

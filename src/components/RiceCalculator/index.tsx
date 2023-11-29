@@ -30,15 +30,10 @@ export default function RiceCalculator() {
 
       <Recipe
         scale={scale}
-        setScale={setScale}
         rice={rice}
-        setRice={setRice}
         riceType={riceType}
-        setRiceType={setRiceType}
         pot={pot}
-        setPot={setPot}
         purpose={purpose}
-        setPurpose={setPurpose}
       />
     </>
   )
