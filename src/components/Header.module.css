@@ -1,5 +1,5 @@
 .header {
-  margin-bottom: 1.75em;
+  margin-bottom: 1.5em;
 }
 
 .name {
@@ -15,7 +15,7 @@
 
 .title {
   font-size: 32px;
-  margin: 12px 0 18px;
+  margin: 10px 0 18px;
   font-weight: normal;
 }
 
@@ -42,7 +42,7 @@
 
 @media screen and (min-width: 667px) {
   .header {
-    margin-bottom: 2.25em;
+    margin-bottom: 1.666666em;
   }
 
   .photo {
@@ -52,7 +52,7 @@
 
   .title {
     font-size: 48px;
-    margin: 4px 0 20px;
+    margin: 2px 0 20px;
   }
 
   .contacts {
