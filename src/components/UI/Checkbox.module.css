@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   gap: 0.333333em;
+  user-select: none;
 }
 
 .inputwrap {

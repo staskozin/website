@@ -12,7 +12,9 @@
   display: flex;
 }
 
-.button {}
+.button {
+  user-select: none;
+}
 
 .button input {
   display: none;
