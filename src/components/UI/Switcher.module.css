@@ -1,0 +1,65 @@
+.switcher {
+  font-size: inherit;
+  line-height: 1.333333em;
+}
+
+.switcher>span {
+  display: block;
+  margin-bottom: 0.444444em;
+}
+
+.buttons {
+  display: flex;
+}
+
+.button {}
+
+.button input {
+  display: none;
+}
+
+.button span {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  display: block;
+  box-sizing: border-box;
+  padding: calc(0.277777em - 2px) calc(0.5em - 2px) calc(0.5em - 2px);
+  border: 2px solid #89a8b8;
+  margin-right: -2px;
+}
+
+.button:first-child span {
+  border-radius: 6px 0 0 6px;
+}
+
+.button:last-child span {
+  margin-right: 0;
+  border-radius: 0 6px 6px 0;
+}
+
+.button input:checked+span {
+  position: relative;
+  z-index: 2;
+  background-color: #135d86;
+  border-color: #135d86;
+  color: #ffffff;
+  
+}
+
+.button input:disabled+span {
+  position: relative;
+  z-index: 0;
+  color: #a6a6a6;
+  background-color: #f5f5f5;
+  border-color: #cccccc;
+}
+
+@media (hover: hover) {
+  .button span:hover {
+    background-color: #ecf1f4;
+  }
+  .button input:disabled+span:hover {
+    cursor: not-allowed;
+  }
+}

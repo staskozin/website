@@ -53,26 +53,6 @@ export default function Recipe(props: RecipeProps) {
         } />
         <span>5. Добавить заправку и&nbsp;перемешать.</span>
       </div>
-
-      <div className={s.dressing}>
-        <div className={s.paper}>
-          <span>Заправка</span>
-          <div className={s.ingredientWrap}>
-            <div className={s.ingredient}>
-              <span>Уксус 3%</span>
-              <span>{ingredients.vinegar} мл</span>
-            </div>
-            <div className={s.ingredient}>
-              <span>Соль</span>
-              <span>{ingredients.salt} г</span>
-            </div>
-            <div className={s.ingredient}>
-              <span>Сахар</span>
-              <span>{ingredients.sugar} г</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

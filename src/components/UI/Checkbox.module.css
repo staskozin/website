@@ -1,9 +1,9 @@
 .checkbox {
-  font-size: 24px;
-  height: 24px;
+  font-size: inherit;
+  height: 1.055555em;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.333333em;
 }
 
 .inputwrap {
@@ -12,12 +12,13 @@
 }
 
 .input {
+  font-size: inherit;
   box-sizing: border-box;
-  height: 24px;
-  width: 24px;
+  height: 1.055555em;
+  width: 1.055555em;
   margin: 0;
   border: 2px solid #89a8b8;
-  border-radius: 4px;
+  border-radius: 0.222222em;
   -webkit-appearance: none;
   appearance: none;
   -webkit-transition-property: border-color;
@@ -31,8 +32,10 @@
 .checkmark {
   display: none;
   position: absolute;
-  left: 6px;
-  bottom: 5px;
+  height: 1.166666em;
+  width: 0.833333em;
+  left: 0.277777em;
+  bottom: 0.222222em;
 }
 
 .input:checked+.checkmark {
@@ -40,8 +43,7 @@
 }
 
 .text {
-  line-height: 24px;
-  margin-top: -2px;
+  margin-top: -0.111111em;
 }
 
 @media (hover: hover) {
@@ -50,6 +52,7 @@
   }
 
   .checkbox:hover .input {
+    cursor: pointer;
     border-color: hsl(200, 25%, 78%);
     -webkit-transition: none;
     transition: none;

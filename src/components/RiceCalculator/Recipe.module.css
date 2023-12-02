@@ -1,7 +1,8 @@
 .recipe {
+  font-size: 18px;
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   line-height: 1.25;
 }
 
@@ -9,59 +10,8 @@
   border-radius: 6px;
 }
 
-.dressing {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 4/3;
-}
-
-.paper {
-  border-radius: 6px;
-  padding: 12px 24px 24px;
-  background:
-    linear-gradient(to left bottom, transparent 50%, rgb(0 0 0 / 8%) 0) no-repeat 100% 0 / 1.5em 1.5em,
-    linear-gradient(-135deg, transparent 1.0575em, hsl(45, 100%, 94%) 0);
-}
-
-.paper>span {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 12px;
-  line-height: 1.45;
-}
-
-.ingredientWrap {
-  display: flex;
-  gap: 6px 24px;
-  flex-wrap: wrap;
-}
-
-.ingredient span:first-child {
-  display: block;
-  line-height: 1;
-}
-
-.ingredient span:last-child {
-  font-size: 1.333333em;
-  display: block;
-  font-weight: bold;
-}
-
-@media screen and (max-width: 1024px) {
-  .recipe {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1023px) {
   .recipe {
     grid-template-columns: 1fr;
-  }
-
-  .dressing {
-    justify-content: start;
-    align-items: start;
-    aspect-ratio: initial;
   }
 }

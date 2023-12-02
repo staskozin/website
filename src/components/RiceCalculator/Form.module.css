@@ -1,20 +1,15 @@
-.control {
-  max-width: 800px;
-  font-size: 32px;
-  line-height: 46px;
-  margin: 0 auto 22px;
+.form {
+  font-size: 18px;
 }
 
-.text {
-  display: inline-block;
+.wrap {
+  position: sticky;
+  top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.checkbox {
-  margin-bottom: 6px;
-}
-
-@media screen and (min-width: 667px) {
-  .checkbox {
-    justify-content: center;
-  }
+.riceInput>div:first-child {
+  margin-bottom: 0.5em;
 }

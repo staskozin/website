@@ -4,12 +4,12 @@ import Image from 'next/image'
 import s from './Checkbox.module.css'
 
 
-export default function RiceCalculator(props: CheckboxProps) {
+export default function Checkbox(props: CheckboxProps) {
   return (
     <label className={`${s.checkbox} ${props.className ? props.className : ''}`}>
       <div className={s.inputwrap}>
         <input className={s.input} type="checkbox" checked={props.checked} onChange={() => props.setFunction(!props.checked)} />
-        <Image className={s.checkmark} src="/img/ui/checkmark.svg" alt="Галочка" width={21} height={28}/>
+        <Image className={s.checkmark} src="/img/ui/checkmark.svg" alt="Галочка" width={15} height={21}/>
       </div>
       <span className={s.text}>{props.text}</span>
     </label>
@@ -17,7 +17,7 @@ export default function RiceCalculator(props: CheckboxProps) {
 }
 
 type CheckboxProps = {
-  checked?: boolean
+  checked: boolean
   text: string
   setFunction: Dispatch<SetStateAction<boolean>>
   className?: string

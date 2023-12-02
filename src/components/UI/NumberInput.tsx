@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction, useEffect, useReducer, useRef } from 'react'
 
-import s from './TextInput.module.css'
+import s from './NumberInput.module.css'
 
 
-export default function TextInput(props: CheckboxProps) {
+export default function NumberInput(props: NumberInputProps) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [forcedUpdate, forceUpdate] = useReducer(x => x + 1, 0)
 
@@ -16,6 +16,7 @@ export default function TextInput(props: CheckboxProps) {
 
   return (
     <div className={`${s.wrap} ${props.className ? props.className : ''}`}>
+      <span>{props.textBefore}</span>
       <input
         className={s.input}
         ref={inputRef}
@@ -42,13 +43,15 @@ export default function TextInput(props: CheckboxProps) {
             props.setFunction(450)
         }}
       />
-      <span>{props.value}</span>
+      <span>{props.textAfter}</span>
     </div>
   )
 }
 
-type CheckboxProps = {
+type NumberInputProps = {
   value: number
   setFunction: Dispatch<SetStateAction<number>>
+  textBefore: string
+  textAfter: string
   className?: string
 }
