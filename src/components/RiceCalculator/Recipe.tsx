@@ -1,21 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import Image from 'next/image'
+
+import { Context } from '@/components/RiceCalculator'
 import ResponsiveImage from '@/components/UI/ResponsiveImage'
 
 import s from './Recipe.module.css'
 
 
-export default function Recipe(props: RecipeProps) {
-  const [ingredients, setIngredients] = useState<Ingredients>({
-    water: 495,
-    vinegar: 50,
-    sugar: 45,
-    salt: 5
-  })
-
-  useEffect(() => {
-    setIngredients(calculateProportions(props.rice))
-  }, [props.rice])
+export default function Recipe() {
+  const ctx = useContext(Context)
 
   return (
     <div className={s.recipe}>
@@ -30,7 +23,7 @@ export default function Recipe(props: RecipeProps) {
         <ResponsiveImage image={
           <Image src="/img/rice-calculator/pot-sushi-2.jpg" alt="" fill sizes="1024px" />
         } />
-        <span>2. Добавить {ingredients.water}&nbsp;грамм воды и&nbsp;довести до&nbsp;кипения.</span>
+        <span>2. Добавить {ctx.state.ingredients.water}&nbsp;грамм воды и&nbsp;довести до&nbsp;кипения.</span>
       </div>
 
       <div>
@@ -55,29 +48,4 @@ export default function Recipe(props: RecipeProps) {
       </div>
     </div>
   )
-}
-
-function calculateProportions(rice: number): Ingredients {
-  const proportion = Math.abs(rice / 500)
-  return {
-    water: Math.round(550 * proportion),
-    vinegar: Math.round(55 * proportion),
-    sugar: Math.round(45 * proportion),
-    salt: Math.round(5 * proportion)
-  }
-}
-
-type Ingredients = {
-  water: number
-  vinegar: number
-  sugar: number
-  salt: number
-}
-
-type RecipeProps = {
-  scale: boolean
-  rice: number
-  riceType: string
-  pot: string
-  purpose: string
 }

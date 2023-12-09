@@ -1,9 +1,7 @@
-import { Dispatch, SetStateAction } from 'react'
-
 import s from './Switcher.module.css'
 
 
-function renderOptions<Variant extends string>(options: Record<Variant, optionState>, selected: string, setFunction: Dispatch<SetStateAction<Variant>>) {
+function renderOptions<Variant extends string>(options: Record<Variant, optionState>, selected: string, setFunction: (variant: Variant) => void) {
   const result: Array<JSX.Element> = []
   for (let o in options) {
     result.push(
@@ -31,7 +29,7 @@ type SwitcherProps<Variant extends string> = {
   text: string
   selected: string
   options: Record<Variant, optionState>
-  setFunction: Dispatch<SetStateAction<Variant>>
+  setFunction: (variant: Variant) => void
   className?: string
 }
 

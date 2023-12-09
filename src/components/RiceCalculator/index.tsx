@@ -1,115 +1,207 @@
 'use client'
 
-import { useState } from 'react'
+import { Dispatch, createContext, useReducer } from 'react'
 
-import Checkbox from '@/components/UI/Checkbox'
-import Switcher from '@/components/UI/Switcher'
-import NumberInput from '@/components/UI/NumberInput'
-import Recipe from './Recipe'
+import Form from '@/components/RiceCalculator/Form'
+import Recipe from '@/components/RiceCalculator/Recipe'
 
 import s from './RiceCalculator.module.css'
-import sf from './Form.module.css'
 
+export const Context = createContext<CalcContext>({} as CalcContext)
+
+const reducer: CalcReducer = (state: CalcState, action: CalcAction): CalcState => {
+  let newState: CalcState
+  switch (action.type) {
+    case 'changeScale':
+      newState = {
+        ...state,
+        scale: action.payload
+      }
+      break
+    case 'changeRice':
+      const proportion = Math.abs(action.payload / 500)
+      newState = {
+        ...state,
+        rice: action.payload,
+        ingredients: {
+          // Здесь надо вызывать функцию, которая зависит от состояния рецепта
+          // Для суши одна, для гарнира другая и т.д.
+          // И пересчитывать ингредиенты в каждом экшне
+          water: Math.round(550 * proportion),
+          vinegar: Math.round(55 * proportion),
+          sugar: Math.round(45 * proportion),
+          salt: Math.round(5 * proportion)
+        }
+      }
+      break
+    case 'changePurpose':
+      if (action.payload === 'side') {
+        newState = {
+          ...state,
+          purpose: action.payload,
+          disabledButtons: {
+            ...state.disabledButtons,
+            riceType: {
+              round: false,
+              long: false,
+              parboiled: false
+            },
+            pot: {
+              pot: false,
+              multi: false,
+              pan: false
+            }
+          }
+        }
+      } else if (action.payload === 'porridge') {
+        newState = {
+          ...state,
+          purpose: action.payload,
+          riceType: 'round',
+          pot: state.pot !== 'pan' ? state.pot : 'pot',
+          disabledButtons: {
+            ...state.disabledButtons,
+            riceType: {
+              round: false,
+              long: true,
+              parboiled: true
+            },
+            pot: {
+              pot: false,
+              multi: false,
+              pan: true
+            }
+          }
+        }
+      } else {
+        newState = {
+          ...state,
+          purpose: action.payload,
+          riceType: 'round',
+          pot: state.pot !== 'pan' ? state.pot : 'pot',
+          disabledButtons: {
+            ...state.disabledButtons,
+            riceType: {
+              round: false,
+              long: true,
+              parboiled: true
+            },
+            pot: {
+              pot: false,
+              multi: false,
+              pan: true
+            }
+          }
+        }
+      }
+      break
+    case 'changeRiceType':
+      newState = {
+        ...state,
+        riceType: action.payload
+      }
+      break
+    case 'changePot':
+      newState = {
+        ...state,
+        pot: action.payload
+      }
+      break
+    default:
+      throw new Error('Неправильный action')
+  }
+  return newState
+}
 
 export default function RiceCalculator() {
-  const [scale, setScale] = useState<boolean>(true)
-  const [rice, setRice] = useState<number>(450)
-  const [riceType, setRiceType] = useState<riceTypeVariant>('round')
-  const [pot, setPot] = useState<potVariant>('pot')
-  const [purpose, setPurpose] = useState<purposeVariant>('sushi')
-
+  const [state, dispatch] = useReducer<CalcReducer>(reducer, {
+    scale: true,
+    rice: 450,
+    riceType: 'round',
+    pot: 'pot',
+    purpose: 'sushi',
+    ingredients: {
+      water: 495,
+      vinegar: 50,
+      salt: 5,
+      sugar: 41
+    },
+    disabledButtons: {
+      riceType: {
+        round: false,
+        long: true,
+        parboiled: true
+      },
+      pot: {
+        pot: false,
+        multi: false,
+        pan: true
+      },
+      purpose: {
+        sushi: false,
+        side: false,
+        porridge: false
+      }
+    }
+  })
 
   return (
-    <div className={s.container}>
-      <Recipe
-        scale={scale}
-        rice={rice}
-        riceType={riceType}
-        pot={pot}
-        purpose={purpose}
-      />
-
-<form className={sf.form}>
-      <div className={sf.wrap}>
-        <Switcher<purposeVariant>
-          text='Для чего'
-          selected={purpose}
-          options={{
-            'sushi': {
-              name: 'Суши',
-              disabled: false
-            },
-            'side': {
-              name: 'Гарнир',
-              disabled: true
-            },
-            'porridge': {
-              name: 'Каша',
-              disabled: true
-            }
-          }}
-          setFunction={setPurpose}
-        />
-
-        <div className={sf.riceInput}>
-          <NumberInput
-            value={rice}
-            setFunction={setRice}
-            textBefore='Кол-во риса'
-            textAfter='грамм'
-          />
-          <Checkbox
-            text='У меня есть весы'
-            checked={scale}
-            setFunction={setScale}
-          />
-        </div>
-
-        <Switcher
-          text='Вид риса'
-          selected={riceType}
-          options={{
-            'round': {
-              name: 'Круглый',
-              disabled: false
-            },
-            'long': {
-              name: 'Длинный',
-              disabled: true
-            },
-            'parboiled': {
-              name: 'Пропаренный',
-              disabled: true
-            }
-          }}
-          setFunction={setRiceType}
-        />
-
-        <Switcher
-          text='Посуда'
-          selected={pot}
-          options={{
-            'pot': {
-              name: 'Кастрюля',
-              disabled: false
-            },
-            'multi': {
-              name: 'Мультиварка',
-              disabled: false
-            },
-            'pan': {
-              name: 'Сковорода',
-              disabled: true
-            }
-          }}
-          setFunction={setPot}
-        />
+    <Context.Provider value={{ dispatch, state }}>
+      <div className={s.container}>
+        <Recipe />
+        <Form />
       </div>
-    </form>
-    </div>
+    </Context.Provider>
   )
 }
 
-type riceTypeVariant = 'round' | 'long' | 'parboiled'
-type potVariant = 'pot' | 'multi' | 'pan'
-type purposeVariant = 'sushi' | 'side' | 'porridge'
+type CalcContext = {
+  dispatch: Dispatch<CalcAction>
+  state: CalcState
+}
+
+type CalcReducer = (state: CalcState, action: CalcAction) => CalcState
+
+export type purposeVariant = 'sushi' | 'side' | 'porridge'
+export type riceTypeVariant = 'round' | 'long' | 'parboiled'
+export type potVariant = 'pot' | 'multi' | 'pan'
+
+type CalcState = {
+  scale: boolean
+  rice: number
+  purpose: purposeVariant,
+  riceType: riceTypeVariant
+  pot: potVariant
+  ingredients: Ingredients,
+  disabledButtons: DisabledButtons
+}
+
+type Ingredients = {
+  water: number
+  vinegar: number
+  sugar: number
+  salt: number
+}
+
+type DisabledButtons = {
+  purpose: {
+    sushi: boolean
+    side: boolean
+    porridge: boolean
+  }
+  riceType: {
+    round: boolean
+    long: boolean
+    parboiled: boolean
+  }
+  pot: {
+    pot: boolean
+    multi: boolean
+    pan: boolean
+  }
+}
+
+export type CalcAction = {
+  type: 'changeScale' | 'changeRice' | 'changePurpose' | 'changeRiceType' | 'changePot'
+  payload?: any
+}

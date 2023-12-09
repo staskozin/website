@@ -1,4 +1,6 @@
-import { Dispatch, SetStateAction, useEffect, useReducer, useRef } from 'react'
+import { Dispatch, useEffect, useReducer, useRef } from 'react'
+
+import { CalcAction } from '@/components/RiceCalculator'
 
 import s from './NumberInput.module.css'
 
@@ -28,7 +30,7 @@ export default function NumberInput(props: NumberInputProps) {
           if (e.target.validity.valid) {
             const value = Number(e.target.value)
             cursorPosition.current = e.target.selectionStart!
-            props.setFunction(value > 2000000 ? 2000000 : value)
+            props.setFunction({ type: 'changeRice', payload: value > 2000000 ? 2000000 : value })
           } else {
             cursorPosition.current = e.target.selectionStart! - 1
             forceUpdate()
@@ -40,7 +42,7 @@ export default function NumberInput(props: NumberInputProps) {
         }}
         onBlur={() => {
           if (!props.value)
-            props.setFunction(450)
+            props.setFunction({ type: 'changeRice', payload: 450 })
         }}
       />
       <span>{props.textAfter}</span>
@@ -50,7 +52,7 @@ export default function NumberInput(props: NumberInputProps) {
 
 type NumberInputProps = {
   value: number
-  setFunction: Dispatch<SetStateAction<number>>
+  setFunction: Dispatch<CalcAction>
   textBefore: string
   textAfter: string
   className?: string
