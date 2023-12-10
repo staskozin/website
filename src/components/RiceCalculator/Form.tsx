@@ -1,9 +1,9 @@
 import { useContext } from 'react'
 
 import { Context } from '@/components/RiceCalculator'
-import Checkbox from '@/components/UI/Checkbox'
-import NumberInput from '@/components/UI/NumberInput'
-import Switcher from '@/components/UI/Switcher'
+import Checkbox from '@/components/RiceCalculator/UI/Checkbox'
+import NumberInput from '@/components/RiceCalculator/UI/NumberInput'
+import Switcher from '@/components/RiceCalculator/UI/Switcher'
 import { potVariant, purposeVariant, riceTypeVariant } from '@/components/RiceCalculator/reducer'
 
 import s from './Form.module.css'

@@ -4,6 +4,7 @@ export const reducer: CalcReducer = (state: CalcState, action: CalcAction): Calc
     case 'changeScale':
       newState.scale = action.payload
       break
+
     case 'changeRice':
       const proportion = Math.abs(action.payload / 500)
       newState.rice = action.payload
@@ -17,6 +18,7 @@ export const reducer: CalcReducer = (state: CalcState, action: CalcAction): Calc
         salt: Math.round(5 * proportion)
       }
       break
+
     case 'changePurpose':
       newState.purpose = action.payload
       if (action.payload === 'side') {
@@ -58,12 +60,15 @@ export const reducer: CalcReducer = (state: CalcState, action: CalcAction): Calc
         }
       }
       break
+
     case 'changeRiceType':
       newState.riceType = action.payload
       break
+
     case 'changePot':
       newState.pot = action.payload
       break
+
     default:
       throw new Error('Неправильный action')
   }

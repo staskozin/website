@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import ResponsiveImage from '@/components/UI/ResponsiveImage'
+import ResponsiveImage from '@/components/Image/ResponsiveImage'
 
 import s from './Project.module.css'
 

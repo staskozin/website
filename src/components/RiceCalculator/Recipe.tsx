@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import Image from 'next/image'
 
 import { Context } from '@/components/RiceCalculator'
-import ResponsiveImage from '@/components/UI/ResponsiveImage'
+import ResponsiveImage from '@/components/Image/ResponsiveImage'
 
 import s from './Recipe.module.css'
 
