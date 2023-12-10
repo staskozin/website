@@ -1,6 +1,6 @@
 import { Dispatch, useEffect, useReducer, useRef } from 'react'
 
-import { CalcAction } from '@/components/RiceCalculator'
+import { CalcAction } from '@/components/RiceCalculator/reducer'
 
 import s from './NumberInput.module.css'
 

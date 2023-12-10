@@ -1,7 +1,7 @@
 import { Dispatch } from 'react'
 import Image from 'next/image'
 
-import { CalcAction } from '@/components/RiceCalculator'
+import { CalcAction } from '@/components/RiceCalculator/reducer'
 
 import s from './Checkbox.module.css'
 
