@@ -1,3 +1,34 @@
+export const initialState: CalcState = {
+  scale: true,
+  rice: 450,
+  riceType: 'round',
+  pot: 'pot',
+  purpose: 'sushi',
+  ingredients: {
+    water: 495,
+    vinegar: 50,
+    salt: 5,
+    sugar: 41
+  },
+  disabledButtons: {
+    riceType: {
+      round: false,
+      long: true,
+      parboiled: true
+    },
+    pot: {
+      pot: false,
+      multi: false,
+      pan: true
+    },
+    purpose: {
+      sushi: false,
+      side: false,
+      porridge: false
+    }
+  }
+}
+
 export const reducer: CalcReducer = (state: CalcState, action: CalcAction): CalcState => {
   let newState: CalcState = { ...state }
 
