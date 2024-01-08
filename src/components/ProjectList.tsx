@@ -42,7 +42,15 @@ export default function Projects() {
       <Project
         href="https://avorio.biz"
         text="Сайт компании Авориоматикс"
-        view={<Image src="/img/project/avorio.jpg" alt="" fill sizes='550px' />}
+        view={<ScrollableImage
+          src={[
+            "/img/project/avorio/1.jpg",
+            "/img/project/avorio/2.jpg",
+            "/img/project/avorio/3.jpg",
+            "/img/project/avorio/4.jpg"
+          ]}
+          alt="Аворио"
+        />}
       />
 
       <Project
