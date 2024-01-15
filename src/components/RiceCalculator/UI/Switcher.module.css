@@ -26,9 +26,9 @@
   cursor: pointer;
   display: block;
   box-sizing: border-box;
-  padding: calc(0.277777em - 2px) calc(0.5em - 2px) calc(0.5em - 2px);
-  border: 2px solid #89a8b8;
-  margin-right: -2px;
+  padding: calc(0.188888em) calc(0.411111em) calc(0.411111em);
+  border: 0.088889em solid #89a8b8;
+  margin-right: -0.088889em;
 }
 
 .button:first-child span {
