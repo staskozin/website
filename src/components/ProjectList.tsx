@@ -21,7 +21,18 @@ export default function Projects() {
       <Project
         href="/rice-calculator"
         text="Как варить рис"
-        view={<Image src="/img/project/rice.jpg" alt="" fill sizes='550px' />}
+        view={<ScrollableImage
+          src={[
+            "/img/project/rice/1.jpg",
+            "/img/project/rice/2.jpg",
+            "/img/project/rice/3.jpg",
+            "/img/project/rice/4.jpg",
+            "/img/project/rice/5.jpg"
+          ]}
+          alt="Как варить рис"
+          perspective
+          rounded
+        />}
       />
 
       <Project

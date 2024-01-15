@@ -77,12 +77,18 @@ export default function ScrollableImage(props: ScrollableImageProps) {
     })
   }
 
+  let className = ''
+  if (props.perspective)
+    className += `${s.perspective} `
+  if (props.rounded)
+    className += `${s.rounded} `
+
   return (
     <div ref={wrapRef}>
       <div ref={controlRef} className={s.control}>
         {createSegments(props.src)}
       </div>
-      <Image className={props.perspective ? s.perspective : ''} ref={imageRef} src={currentImage} alt={props.alt} fill sizes='550px' />
+      <Image className={className} ref={imageRef} src={currentImage} alt={props.alt} fill sizes='550px' />
     </div>
   )
 }
@@ -91,4 +97,5 @@ type ScrollableImageProps = {
   src: Array<string>
   alt: string
   perspective?: boolean
+  rounded?: boolean
 }
