@@ -4,6 +4,10 @@
   gap: 0.333333em;
 }
 
+.wrap>span:first-child {
+  font-weight: bold;
+}
+
 .input::-webkit-outer-spin-button,
 .input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -20,4 +24,18 @@
   border-radius: 6px;
   padding: 0.333333em 0.5em 0.444444em;
   width: 7ch;
+  -webkit-transition-property: border-color;
+  transition-property: border-color;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -webkit-transition-duration: .22s;
+  transition-duration: .22s;
+}
+
+@media (hover: hover) {
+  .input:hover {
+    border-color: hsl(200, 25%, 78%);
+    -webkit-transition: none;
+    transition: none;
+  }
 }
