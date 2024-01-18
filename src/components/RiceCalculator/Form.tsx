@@ -4,6 +4,7 @@ import { Context } from '@/components/RiceCalculator'
 import Checkbox from '@/components/RiceCalculator/UI/Checkbox'
 import NumberInput from '@/components/RiceCalculator/UI/NumberInput'
 import Switcher from '@/components/RiceCalculator/UI/Switcher'
+import Ingredients from '@/components/RiceCalculator/Ingredients'
 import { potVariant, purposeVariant, riceTypeVariant } from '@/components/RiceCalculator/reducer'
 
 import s from './Form.module.css'
@@ -100,6 +101,7 @@ export default function Recipe() {
           }}
           setFunction={changePot}
         />
+        <Ingredients />
       </div>
     </form>
   )
