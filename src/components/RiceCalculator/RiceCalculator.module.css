@@ -6,11 +6,11 @@
 
 @media screen and (max-width: 1023px) {
   .container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.66fr 1fr;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 676px) {
   .container {
     grid-template-columns: 1fr;
   }
