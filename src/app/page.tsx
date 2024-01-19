@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Header title='Веб-разработчик и&nbsp;дизайнер' />
+      <Header title='Веб-разработчик' />
       <ProjectList />
     </>
   )

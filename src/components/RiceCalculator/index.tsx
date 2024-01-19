@@ -21,8 +21,8 @@ export default function RiceCalculator() {
   return (
     <Context.Provider value={{ dispatch, state }}>
       <div className={s.container}>
-        <Recipe />
         <Form />
+        <Recipe />
       </div>
     </Context.Provider>
   )

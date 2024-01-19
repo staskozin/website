@@ -28,18 +28,6 @@
   flex-wrap: wrap;
 }
 
-@media screen and (min-width: 515px) {
-
-  .name,
-  .contacts {
-    justify-content: center;
-  }
-
-  .title {
-    text-align: center;
-  }
-}
-
 @media screen and (min-width: 667px) {
   .header {
     margin-bottom: 1.666666em;
@@ -61,5 +49,6 @@
 
   .contacts a {
     padding: 0.8em;
+    margin-left: -0.8em;
   }
 }
