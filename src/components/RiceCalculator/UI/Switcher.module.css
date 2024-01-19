@@ -41,9 +41,9 @@
 }
 
 .button input:disabled+span {
-  color: #a6a6a6;
-  background-color: #f5f5f5;
-  border-color: #cccccc;
+  color: #bbbbbb;
+  background-color: #fbfbfb;
+  border-color: #dddddd;
 }
 
 .button input:focus-visible+span {
