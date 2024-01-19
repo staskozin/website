@@ -1,9 +1,11 @@
 .checkbox {
   font-size: inherit;
+  max-width: fit-content;
   height: 1.055555em;
   display: flex;
   align-items: center;
   gap: 0.333333em;
+  padding-right: 0.333333em;
   user-select: none;
 }
 
