@@ -53,7 +53,7 @@ export default function Recipe() {
             value={state.rice}
             setFunction={dispatch}
             textBefore='Кол-во риса'
-            textAfter='грамм'
+            textAfter='г'
           />
           <Checkbox
             text='У меня есть весы'
