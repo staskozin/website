@@ -3,7 +3,7 @@ import ProjectList from '@/components/ProjectList'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Станислав Козин. Веб-разработчик и дизайнер',
+  title: 'Станислав Козин. Веб-разработчик',
   description: 'Сайт-портфолио фронтенд-разработчика',
 }
 
