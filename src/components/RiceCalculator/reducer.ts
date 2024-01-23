@@ -1,11 +1,12 @@
 export const initialState: CalcState = {
   scale: true,
   rice: 450,
+  ratio: 1.15,
   riceType: 'round',
   pot: 'pot',
   purpose: 'sushi',
   ingredients: {
-    water: 495,
+    water: 518,
     vinegar: 50,
     salt: 5,
     sugar: 41
@@ -18,13 +19,13 @@ export const initialState: CalcState = {
     },
     pot: {
       pot: false,
-      multi: false,
+      multi: true,
       pan: true
     },
     purpose: {
       sushi: false,
       side: false,
-      porridge: false
+      porridge: true
     }
   }
 }
@@ -38,6 +39,21 @@ export const reducer: CalcReducer = (state: CalcState, action: CalcAction): Calc
 
   else if (action.type === 'changeRiceType') {
     newState.riceType = action.payload
+    switch (action.payload) {
+      case 'round':
+        newState.ratio = 1.15
+        break
+      case 'long':
+        newState.ratio = 1.25
+        break
+      case 'parboiled':
+        newState.ratio = 1.3
+        break
+    }
+    newState.ingredients = {
+      ...state.ingredients,
+      water: Math.round(state.rice * newState.ratio)
+    }
   }
 
   else if (action.type === 'changePot') {
@@ -45,13 +61,10 @@ export const reducer: CalcReducer = (state: CalcState, action: CalcAction): Calc
   }
 
   else if (action.type === 'changeRice') {
-    const proportion = Math.abs(action.payload / 500)
     newState.rice = action.payload
+    const proportion = Math.abs(action.payload / 500)
     newState.ingredients = {
-      // Здесь надо вызывать функцию, которая зависит от состояния рецепта
-      // Для суши одна, для гарнира другая и т.д.
-      // И пересчитывать ингредиенты в каждом экшне
-      water: Math.round(550 * proportion),
+      water: Math.round(newState.rice * state.ratio),
       vinegar: Math.round(55 * proportion),
       sugar: Math.round(45 * proportion),
       salt: Math.round(5 * proportion)
@@ -69,8 +82,8 @@ export const reducer: CalcReducer = (state: CalcState, action: CalcAction): Calc
       }
       newState.disabledButtons.pot = {
         pot: false,
-        multi: false,
-        pan: false
+        multi: true,
+        pan: true
       }
     }
 
@@ -84,7 +97,7 @@ export const reducer: CalcReducer = (state: CalcState, action: CalcAction): Calc
       }
       newState.disabledButtons.pot = {
         pot: false,
-        multi: false,
+        multi: true,
         pan: true
       }
     }
@@ -99,8 +112,13 @@ export const reducer: CalcReducer = (state: CalcState, action: CalcAction): Calc
       }
       newState.disabledButtons.pot = {
         pot: false,
-        multi: false,
+        multi: true,
         pan: true
+      }
+      newState.ratio = 1.15
+      newState.ingredients = {
+        ...state.ingredients,
+        water: Math.round(state.rice * newState.ratio)
       }
     }
   }
@@ -121,6 +139,7 @@ export type potVariant = 'pot' | 'multi' | 'pan'
 export type CalcState = {
   scale: boolean
   rice: number
+  ratio: number
   purpose: purposeVariant,
   riceType: riceTypeVariant
   pot: potVariant

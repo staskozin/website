@@ -29,10 +29,15 @@ export default function Ingredients() {
       <ul ref={ingredientsRef}>
         <li>Рис — {state.rice} г</li>
         <li>Вода — {state.ingredients.water} г</li>
-        <li>Для заправки:</li>
-        <li>Уксус 3% — {state.ingredients.vinegar} мл</li>
-        <li>Сахар — {state.ingredients.sugar} г</li>
-        <li>Соль — {state.ingredients.salt} г</li>
+        {
+          state.purpose === 'sushi' ?
+            <>
+              <li>Для заправки:</li>
+              <li>Уксус 3% — {state.ingredients.vinegar} мл</li>
+              <li>Сахар — {state.ingredients.sugar} г</li>
+              <li>Соль — {state.ingredients.salt} г</li>
+            </> : null
+        }
       </ul>
     </div>
   )

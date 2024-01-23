@@ -55,11 +55,11 @@ export default function Recipe() {
             textBefore='Кол-во риса'
             textAfter='г'
           />
-          <Checkbox
+          {/* <Checkbox
             text='У меня есть весы'
             checked={state.scale}
             setFunction={dispatch}
-          />
+          /> */}
         </div>
 
         <Switcher<riceTypeVariant>
