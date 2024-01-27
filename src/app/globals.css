@@ -32,6 +32,10 @@
   --background-color: #ffffff;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font-family: "YsabeauOffice";
   margin: 0;
