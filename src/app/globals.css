@@ -30,6 +30,7 @@
   --link-input-hover-color: hsla(201, 75%, 30%, 0.75);
   --text-color: #000000;
   --background-color: #ffffff;
+  --masonry-gap: 30px;
 }
 
 html {
@@ -73,12 +74,12 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: -24px;
+  margin-left: calc(var(--masonry-gap) * -1);
   width: auto;
 }
 
 .masonry__item {
-  padding-left: 24px;
+  padding-left: var(--masonry-gap);
   background-clip: padding-box;
 }
 
