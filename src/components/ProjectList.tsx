@@ -65,6 +65,64 @@ export default function Projects() {
       />
 
       <Project
+        href="https://3dphoto.staskozin.ru"
+        text="Сайт фотостудии Превращение"
+        view={<ScrollableImage
+          src={[
+            "/img/project/3dphoto/1.jpg",
+            "/img/project/3dphoto/2.jpg",
+            "/img/project/3dphoto/3.jpg",
+            "/img/project/3dphoto/4.jpg",
+            "/img/project/3dphoto/5.jpg",
+            "/img/project/3dphoto/6.jpg",
+            "/img/project/3dphoto/7.jpg",
+            "/img/project/3dphoto/8.jpg",
+            "/img/project/3dphoto/9.jpg",
+            "/img/project/3dphoto/10.jpg",
+            "/img/project/3dphoto/11.jpg",
+            "/img/project/3dphoto/12.jpg",
+            "/img/project/3dphoto/13.jpg",
+            "/img/project/3dphoto/14.jpg",
+            "/img/project/3dphoto/15.jpg",
+            "/img/project/3dphoto/16.jpg",
+            "/img/project/3dphoto/17.jpg",
+            "/img/project/3dphoto/18.jpg",
+            "/img/project/3dphoto/19.jpg",
+            "/img/project/3dphoto/20.jpg",
+            "/img/project/3dphoto/21.jpg",
+            "/img/project/3dphoto/22.jpg",
+            "/img/project/3dphoto/23.jpg",
+            "/img/project/3dphoto/24.jpg",
+            "/img/project/3dphoto/25.jpg",
+            "/img/project/3dphoto/26.jpg",
+            "/img/project/3dphoto/27.jpg",
+            "/img/project/3dphoto/28.jpg",
+            "/img/project/3dphoto/29.jpg",
+            "/img/project/3dphoto/30.jpg",
+            "/img/project/3dphoto/31.jpg",
+            "/img/project/3dphoto/32.jpg",
+            "/img/project/3dphoto/33.jpg",
+            "/img/project/3dphoto/34.jpg",
+            "/img/project/3dphoto/35.jpg",
+            "/img/project/3dphoto/36.jpg",
+            "/img/project/3dphoto/37.jpg",
+            "/img/project/3dphoto/38.jpg",
+            "/img/project/3dphoto/39.jpg",
+            "/img/project/3dphoto/40.jpg",
+            "/img/project/3dphoto/41.jpg",
+            "/img/project/3dphoto/42.jpg",
+            "/img/project/3dphoto/43.jpg",
+            "/img/project/3dphoto/44.jpg",
+            "/img/project/3dphoto/45.jpg",
+            "/img/project/3dphoto/46.jpg",
+            "/img/project/3dphoto/47.jpg",
+            "/img/project/3dphoto/48.jpg"
+          ]}
+          alt="Греческий трубач, сфотографированный в фотостудии «Превращение»"
+        />}
+      />
+
+      <Project
         href="https://profkoptilnya.ru/constructor"
         text="Конструктор коптилен"
         view={<ScrollableImage
