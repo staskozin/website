@@ -1,13 +1,23 @@
-import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
+import { useEffect, useRef } from 'react'
 
 import s from './ScrollableImage.module.css'
 
 
 export default function ScrollableImage(props: ScrollableImageProps) {
-  const [currentImage, setCurrentImage] = useState(props.src[0])
   const imageRef = useRef<HTMLImageElement>(null)
   const wrapRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function updateBackgroundSize() {
+      if (imageRef.current !== null)
+        imageRef.current!.style.backgroundSize = `${wrapRef.current!.clientWidth * props.numberOfImages}px ${wrapRef.current!.clientHeight}px`
+    }
+    const img = new window.Image()
+    img.onload = updateBackgroundSize
+    img.src = props.src
+    window.addEventListener('resize', updateBackgroundSize)
+    screen.orientation.addEventListener("change", updateBackgroundSize)
+  }, [props.numberOfImages, props.src])
 
   useEffect(() => {
     function handleMove(clientX: number, clientY: number, rotationModifier: number) {
@@ -30,13 +40,13 @@ export default function ScrollableImage(props: ScrollableImageProps) {
     }
 
     function selectImage(xVal: number) {
-      const selected = Math.trunc(xVal / (imageRef.current!.clientWidth / props.src.length))
-      if (selected > props.src.length - 1)
-        setCurrentImage(props.src[props.src.length - 1])
+      let selected = Math.trunc(xVal / (wrapRef.current!.clientWidth / props.numberOfImages))
+      if (selected > props.numberOfImages - 1)
+        selected = props.numberOfImages - 1
       else if (selected < 0)
-        setCurrentImage(props.src[0])
+        selected = 0
       else
-        setCurrentImage(props.src[selected])
+        imageRef.current!.style.backgroundPositionX = `${selected / (props.numberOfImages - 1) * 100}%`
     }
 
     function resetPerspective() {
@@ -56,7 +66,7 @@ export default function ScrollableImage(props: ScrollableImageProps) {
       wrapRef.current!.addEventListener('touchstart', setShadow)
       wrapRef.current!.addEventListener('mouseover', setShadow)
     }
-  }, [props.perspective, props.src])
+  }, [props.perspective, props.numberOfImages])
 
   let className = ''
   if (props.perspective)
@@ -66,14 +76,16 @@ export default function ScrollableImage(props: ScrollableImageProps) {
 
   return (
     <div ref={wrapRef}>
-      <Image className={className} ref={imageRef} src={currentImage} alt={props.alt} fill sizes='550px' />
+      <div className={className} ref={imageRef} style={{ backgroundImage: `url(${props.src})`, aspectRatio: props.width / props.height }}></div>
     </div>
   )
 }
 
 type ScrollableImageProps = {
-  src: Array<string>
-  alt: string
+  src: string
+  width: number
+  height: number
+  numberOfImages: number
   perspective?: boolean
   rounded?: boolean
 }
