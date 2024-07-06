@@ -62,6 +62,7 @@ export default function Projects() {
           width={550}
           height={904}
           numberOfImages={48}
+          perRow={8}
         />}
       />
 

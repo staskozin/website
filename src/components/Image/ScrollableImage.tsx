@@ -9,15 +9,18 @@ export default function ScrollableImage(props: ScrollableImageProps) {
 
   useEffect(() => {
     function updateBackgroundSize() {
-      if (imageRef.current !== null)
+      if (imageRef.current === null) return
+      if (props.perRow === undefined)
         imageRef.current!.style.backgroundSize = `${wrapRef.current!.clientWidth * props.numberOfImages}px ${wrapRef.current!.clientHeight}px`
+      else
+        imageRef.current!.style.backgroundSize = `${wrapRef.current!.clientWidth * props.perRow}px ${wrapRef.current!.clientHeight * Math.ceil(props.numberOfImages / props.perRow)}px`
     }
     const img = new window.Image()
     img.onload = updateBackgroundSize
     img.src = props.src
     window.addEventListener('resize', updateBackgroundSize)
     screen.orientation.addEventListener("change", updateBackgroundSize)
-  }, [props.numberOfImages, props.src])
+  }, [props.numberOfImages, props.src, props.perRow])
 
   useEffect(() => {
     function handleMove(clientX: number, clientY: number, rotationModifier: number) {
@@ -41,12 +44,11 @@ export default function ScrollableImage(props: ScrollableImageProps) {
 
     function selectImage(xVal: number) {
       let selected = Math.trunc(xVal / (wrapRef.current!.clientWidth / props.numberOfImages))
-      if (selected > props.numberOfImages - 1)
-        selected = props.numberOfImages - 1
-      else if (selected < 0)
-        selected = 0
-      else
+      selected = Math.min(Math.max(selected, 0), props.numberOfImages - 1) // clamp
+      if (props.perRow === undefined)
         imageRef.current!.style.backgroundPositionX = `${selected / (props.numberOfImages - 1) * 100}%`
+      else
+        imageRef.current!.style.backgroundPosition = `${(selected % props.perRow) / (props.perRow - 1) * 100}% ${Math.floor(selected / props.perRow) / (Math.ceil(props.numberOfImages / props.perRow) - 1) * 100}%`
     }
 
     function resetPerspective() {
@@ -66,7 +68,7 @@ export default function ScrollableImage(props: ScrollableImageProps) {
       wrapRef.current!.addEventListener('touchstart', setShadow)
       wrapRef.current!.addEventListener('mouseover', setShadow)
     }
-  }, [props.perspective, props.numberOfImages])
+  }, [props.perspective, props.numberOfImages, props.perRow])
 
   let className = ''
   if (props.perspective)
@@ -86,6 +88,7 @@ type ScrollableImageProps = {
   width: number
   height: number
   numberOfImages: number
+  perRow?: number
   perspective?: boolean
   rounded?: boolean
 }
