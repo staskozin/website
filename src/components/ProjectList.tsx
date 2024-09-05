@@ -55,6 +55,18 @@ export default function Projects() {
       />
 
       <Project
+        href="https://github.com/staskozin/url-apps"
+        text="Приложения, умещающиеся в&nbsp;адресной строке"
+        view={<ScrollableImage
+          src={"/img/project/url-apps.png"}
+          width={518}
+          height={192}
+          numberOfImages={42}
+          perRow={4}
+        />}
+      />
+
+      <Project
         href="https://3dphoto.staskozin.ru"
         text="Сайт фотостудии Превращение"
         view={<ScrollableImage

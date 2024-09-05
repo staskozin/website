@@ -70,7 +70,7 @@ export default function ScrollableImage(props: ScrollableImageProps) {
     }
   }, [props.perspective, props.numberOfImages, props.perRow])
 
-  let className = ''
+  let className = `${s.image} `
   if (props.perspective)
     className += `${s.perspective} `
   if (props.rounded)

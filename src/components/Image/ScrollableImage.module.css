@@ -8,3 +8,7 @@
 .rounded {
   border-radius: .67em;
 }
+
+.image {
+  image-rendering: smooth;
+}
