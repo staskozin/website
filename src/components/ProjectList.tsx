@@ -79,6 +79,18 @@ export default function Projects() {
       />
 
       <Project
+        href="https://cinema.staskozin.ru"
+        text="Сайт кинотеатра для&nbsp;курсовой работы"
+        view={<ScrollableImage
+          src={"/img/project/cinema.jpg"}
+          width={552}
+          height={735}
+          numberOfImages={3}
+          rounded
+        />}
+      />
+
+      <Project
         href="https://profkoptilnya.ru/constructor"
         text="Конструктор коптилен"
         view={<ScrollableImage
