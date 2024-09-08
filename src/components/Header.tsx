@@ -12,15 +12,15 @@ export default function Header(props: HeaderProps) {
 
   return (
     <header className={s.header}>
-      <div className={s.name}>
-        <Image className={s.photo} src="/img/stas.png" alt="Фото Стасяна" width={80} height={80} />
-        {pathname === '/' ? (
-          <span>Станислав Козин</span>
-        ) : (
-          <Link href='/'>Станислав Козин</Link>
-        )}
-
-      </div>
+      {pathname === '/' ? (
+        <div className={s.name}>
+          {renderLogo()}
+        </div>
+      ) : (
+        <Link className={s.name} href='/'>
+          {renderLogo()}
+        </Link>
+      )}
 
       <h1 className={s.title}>
         {props.title}
@@ -53,4 +53,13 @@ export default function Header(props: HeaderProps) {
 type HeaderProps = {
   title: string
   subtitle?: string
+}
+
+function renderLogo() {
+  return (
+    <>
+      <Image className={s.photo} src="/img/stas.png" alt="Фото Стасяна" width={80} height={80} />
+      <span>Станислав Козин</span>
+    </>
+  )
 }
