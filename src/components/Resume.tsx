@@ -20,9 +20,7 @@ export default function Resume() {
       <p>Мой отец занимается интернет-торговлей, а&nbsp;я&nbsp;помогаю ему со&nbsp;всем, что связано с&nbsp;ИТ. В&nbsp;частности:</p>
       <ul>
         <li>Cоздавал и&nbsp;поддерживал интернет-магазины на&nbsp;готовом движке: устанавливал и&nbsp;настраивал модули, модифицировал стандартный шаблон, верстал шаблоны с&nbsp;нуля.</li>
-        <li>Для двух магазинов создал конструкторы товаров:<ul>
-          <li><a href="https://profkoptilnya.ru/constructor">https://profkoptilnya.ru/constructor</a> коптильни,</li>
-          <li><a href="https://stolpodnos.ru/constructor">https://stolpodnos.ru/constructor</a> столики для завтрака в&nbsp;постель.</li>
+        <li>Для двух магазинов создал <a href="https://stolpodnos.ru/constructor">конструктор столиков для завтрака</a> и&nbsp;<a href="https://profkoptilnya.ru/constructor">конструктор коптилен</a>.<ul>
         </ul>
         </li>
         <li>Разработал программу, которая генерирует картинки для карточек товаров на&nbsp;маркетплейсах (инфографику). Для генерации нужно заполнить Excel-таблицу и&nbsp;сверстать HTML-шаблон. Программа распарсит таблицу, откроет Chrome, подставит в&nbsp;шаблон данные и&nbsp;сделает скриншоты, которые сохранятся по&nbsp;указанному пути.</li>
