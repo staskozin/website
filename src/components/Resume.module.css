@@ -1,0 +1,52 @@
+.resume {
+  max-width: 59ch;
+  line-height: 1.4;
+}
+
+.resume h2 {
+  font-weight: normal;
+  margin: 1.1em 0 -0.25em;
+}
+
+.resume p {
+  margin: 1em 0;
+}
+
+.resume ul {
+  list-style-type: none;
+  padding-left: 1.2em;
+}
+
+.resume > ul {
+  padding: 0;
+}
+
+.resume li {
+  margin: 0.3em 0;
+}
+
+.resume ul li::before {
+  content: '—';
+  color: #bcbcbc;
+  margin-right: 0.3em;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8em;
+  margin-top: 0.8em;
+}
+
+.skills li {
+  display: inline-block;
+  background: #e3f1fb;
+  margin: 0;
+  padding: 0.2em 0.8em 0.35em;
+  border-radius: 0.3em;
+}
+
+.skills li::before,
+.contacts li::before {
+  content: none !important;
+}

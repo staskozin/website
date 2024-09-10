@@ -31,9 +31,11 @@ export default function Header(props: HeaderProps) {
           <li>{props.subtitle}</li>
         ) : (
           <>
-            <li>
-              <a href="https://hh.ru/resume/d0c04ea9ff044224bc0039ed1f794536703956">Резюме</a>
-            </li>
+            {pathname !== '/cv' ? (
+              <li>
+                <Link href="/cv">Резюме</Link>
+              </li>
+            ) : null}
             <li>
               <a href="https://github.com/staskozin">Гитхаб</a>
             </li>
