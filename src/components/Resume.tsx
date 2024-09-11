@@ -10,7 +10,6 @@ export default function Resume() {
         <li>JavaScript</li>
         <li>TypeScript</li>
         <li>React</li>
-        <li>Redux</li>
         <li>Next.js</li>
       </ul>
       <h2 id="about">О&nbsp;себе</h2>
