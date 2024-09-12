@@ -55,6 +55,17 @@ export default function Projects() {
       />
 
       <Project
+        href="https://vesko.info"
+        text="Сайт компании Вэско-электро"
+        view={<ScrollableImage
+          src={"/img/project/vesko.jpg"}
+          width={550}
+          height={731}
+          numberOfImages={3}
+        />}
+      />
+
+      <Project
         href="https://github.com/staskozin/url-apps"
         text="Приложения, умещающиеся в&nbsp;адресной строке"
         view={<ScrollableImage
