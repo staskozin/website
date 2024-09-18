@@ -78,6 +78,40 @@ export default function Projects() {
       />
 
       <Project
+        href="https://profkoptilnya.ru/constructor"
+        text="Конструктор коптилен"
+        view={<ScrollableImage
+          src={"/img/project/smoker.jpg"}
+          width={550}
+          height={391}
+          numberOfImages={5}
+        />}
+      />
+
+      <Project
+        href="https://stolpodnos.ru/constructor"
+        text="Конструктор столиков для&nbsp;завтрака в&nbsp;постель"
+        view={<ScrollableImage
+          src={"/img/project/table.jpg"}
+          width={550}
+          height={465}
+          numberOfImages={4}
+        />}
+      />
+
+      <Project
+        href="https://gradremont.staskozin.ru"
+        text="Сайт компании Град Ремонт"
+        view={<ScrollableImage
+          src={"/img/project/gradremont.jpg"}
+          width={550}
+          height={558}
+          numberOfImages={12}
+          perRow={4}
+        />}
+      />
+
+      <Project
         href="https://3dphoto.staskozin.ru"
         text="Сайт фотостудии Превращение"
         view={<ScrollableImage
@@ -98,28 +132,6 @@ export default function Projects() {
           height={735}
           numberOfImages={3}
           rounded
-        />}
-      />
-
-      <Project
-        href="https://profkoptilnya.ru/constructor"
-        text="Конструктор коптилен"
-        view={<ScrollableImage
-          src={"/img/project/smoker.jpg"}
-          width={550}
-          height={391}
-          numberOfImages={5}
-        />}
-      />
-
-      <Project
-        href="https://stolpodnos.ru/constructor"
-        text="Конструктор столиков для&nbsp;завтрака в&nbsp;постель"
-        view={<ScrollableImage
-          src={"/img/project/table.jpg"}
-          width={550}
-          height={465}
-          numberOfImages={4}
         />}
       />
     </Masonry>
