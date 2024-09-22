@@ -35,7 +35,7 @@ export default function Resume() {
         </ul>
         </li>
       </ul>
-      <p>Стек: Node.js, TypeScript, Fastify, Puppeteer, React, TypeScript, Telegram API, OpenCart.</p>
+      <p>Стек: Node.js, TypeScript, Fastify, Puppeteer, React, Telegram API, OpenCart.</p>
       <p>Помимо этого, делал разные небольшие проекты. Например, <a href="https://salon-kartin.ru/">сайт для салона картин</a>, на&nbsp;котором, собственно, можно выбрать и&nbsp;заказать картину. Некоторые проекты, потерявшие актуальность, заархивированы на&nbsp;моём сайте.</p>
       <p>Мои сайты хорошо работают во&nbsp;всех браузерах, кроме совсем древних, типа IE11.</p>
     </div>
